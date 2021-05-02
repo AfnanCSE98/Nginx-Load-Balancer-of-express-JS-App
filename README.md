@@ -14,7 +14,7 @@ server {
 }
 ```
 
-we've to create a server which listens on port 80 and when gets `/tronal_dump` , it proxy passes the request to `http://expressweb/`.To define `expressweb` we create an upstream and mention our servers.
+we've to create a server which listens on port 80 and say, for example, when gets `/tronal_dump` , it proxy passes the request to `http://expressweb/`.To define `expressweb` we create an upstream service and mention our servers.
 ```
 upstream expressweb {
 
@@ -27,7 +27,7 @@ upstream expressweb {
 These two portions conplete the config file for load balancing and then including it in the `nginx.conf` will do the work.
  
 ### How to run
-This is a demo of load balancing using Nginx.Clone the repo , make sure express JS ,postgresql and Nginx are installed in your machine.
+Clone the repo , make sure express JS ,postgresql and Nginx are installed in your machine.
 
 To install Nginx,run
 ```
