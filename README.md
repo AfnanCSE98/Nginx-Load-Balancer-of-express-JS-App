@@ -1,7 +1,7 @@
 # Practical example of load balancing using Nginx
 ### Nginx as a reverse proxy
 
-![lb.png]
+!(lb.png)
 
 Nginx can be used as a reverse proxy server to serve different clients from different servers.By default , Nginx server listens on port 80 and receives the request from clients and forwards the requests to different servers.Which server to choose is based on round-robin algorithm in Nginx.In our load balancer config file,
 ```
@@ -39,6 +39,8 @@ Then start Nginx server with `sudo systemctl start nginx` and go to `localhost` 
 include /home/<user_name>/Documents/Tonal_Drump/loadbalancer/express.conf;
 ```
 NB : replace the line with the location of express.conf from your machine.Then restart the Nginx server by running `sudo nginx -s reload`.
+
+Execute sql files under `database` directory and make any modifications, if needed, in the database settings of index.js(like database name or changing password).
 
 If things are fine so far , start NodeJS server at several ports with the following 3 commands at three terminal instances.
 
