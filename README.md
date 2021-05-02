@@ -3,7 +3,7 @@
 
 ![](lb.png)
 
-Nginx can be used as a reverse proxy server to serve different clients from different servers.By default , Nginx server listens on port 80 and receives the request from clients and forwards the requests to different servers.Which server to choose is based on round-robin algorithm in Nginx.In our load balancer config file,
+Nginx can function both as a webserver or a proxy.Nginx can be used as a reverse proxy server to serve different clients from different servers.By default , Nginx server listens on port 80 and receives the request from clients and forwards the requests to different servers.Which server to choose is based on round-robin algorithm in Nginx.In our load balancer config file,
 ```
 server {
 
