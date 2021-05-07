@@ -30,7 +30,7 @@ const get_quote_by_id  = async (req , res) =>{
 const show_tags =  (req , res) =>{
   pool.query('SELECT * from tags',(error, results) => {
     if (error) {
-      throw error
+      console.log(error.stack);
     }
     console.log("process id is " + process.pid);
     res.render('index' , {"tags":results.rows , "pid" : process.pid});
