@@ -36,9 +36,9 @@ RUN npm install
 CMD ["/home/node/app/start.sh"]
 EXPOSE 5000
 ```
-* The `FROM` statement indicates nodeJS verssion.
-* I am currently using 16.0.1.`WORKDIR` indicates the project directory,i.e. ddirectory containing all project files which in our case is app. 
-* `COPY` statement copies files from app directory to our Dockerfile.
+* The `FROM` statement indicates nodeJS version.I am currently using 16.0.1.
+* `WORKDIR` indicates the project directory,i.e. directory containing all project files which in our case is app. 
+* `COPY` statement copies files from app directory to our docker image.
 * `RUN` command is executed while building the image.Writing `npm install` will install all the dependencies of our project.
 * `CMD` command gets executed while creating an instance of that image.The `start.sh` script contains the code for running 3 instances of the docker image at port 1111,2222 and 3333.
 * `EXPOSE` command exposes the image into a specific port.
@@ -47,15 +47,15 @@ Now build a docker image,named lb, by running the following command.Don't miss t
 ```
 sudo docker build -t lb .
 ```
-Then you can start 3 instances of this docker image by using `docker run` command.Open 3 new terminals and run the following commands one by one in each of them
+Then you can start 3 instances of this docker image by using `docker run`.Open 3 new terminals and run the following commands one by one in each of them
 ```
 sudo docker run --name lb_app1 -p 5001:5000 --network="host" lb
 sudo docker run --name lb_app2 -p 5002:5000 --network="host" lb
 sudo docker run --name lb_app3 -p 5003:5000 --network="host" lb
 ```
-Since our start.sh contains ports 1111,2222,3333 respectively, the instance lb_app1 corresponds to server starting at port 1111,lb_app2 to 2222 and lb_app3 to 3333.
+Since our start.sh contains ports 1111,2222,3333 respectively, the instance lb_app1 corresponds to server starting at port 1111,lb_app2 to 2222 and lb_app3 to 3333.Note that without using `--network="host"` might cause error while connecting to postgres because docker image ,by default,can't access services(for ex-Postgres) running on localhost.
 
-This will start 3 servers at 3 different ports.Then visit the web app at 3 different ports (`localhost:port`) and look at the process ids of each.You will see a different process id defined by your OS to all three of the instances.Now open another tab in your browser and go to `localhost/tronal_dump` and see the process id.Reload it and see the process id is changing which means you are served by different servers at different time.
+These commands will start 3 servers at 3 different ports.Then visit the web app at 3 different ports (`localhost:port`) and look at the process ids of each.You will see a different process id defined by your OS to all three of the instances.Now open another tab in your browser and go to `localhost/tronal_dump` and see the process id.Reload it and see the process id is changing which means you are served by different servers at different time.
 
 
 ### Run with all dependencies installed
