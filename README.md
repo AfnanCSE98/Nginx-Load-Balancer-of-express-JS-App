@@ -11,6 +11,9 @@ server {
     location /tronal_dump/ {
         proxy_pass http://expressweb/;
     }
+    location ~ /([1-9][0-9]*)$ {
+    proxy_pass http://expressweb/tag/$1/;
+  }
 }
 ```
 
