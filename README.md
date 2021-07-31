@@ -95,6 +95,6 @@ Now open another tab in your browser and go to `localhost/tronal_dump` and see t
 
 Served by server running at Port 1111   |  Served by server running at Port 2222 | Served by server running at Port 3333
 :--------------------------------------:|:--------------------------------------:|:--------------------------------------:
-![](images/t1.png)                    |  ![](images/t2.png)                  |   ![](imagest3.png)
+![](images/t1.png)                    |  ![](images/t2.png)                  |   ![](images/t3.png)
 
 
