@@ -84,9 +84,17 @@ node index.js 1111
 node index.js 2222
 node index.js 3333
 ```
-This will start 3 servers at 3 different ports.Then visit the web app at 3 different ports (`localhost:port`) and look at the process ids of each.You will see a different process id defined by your OS to all three of the instances.Now open another tab in your browser and go to `localhost/tronal_dump` and see the process id.Reload it and see the process id is changing which means you are served by different servers at different time.
+This will start 3 servers at 3 different ports.Then visit the web app at 3 different ports (`localhost:port`) and look at the process ids of each.You will see a different process id defined by your OS to all three of the instances.
 
 Server running at Port 1111             |  Server running at Port 2222           | Server running at Port 3333
 :--------------------------------------:|:--------------------------------------:|:--------------------------------------:
 ![](images/1111.png)                    |  ![](images/2222.png)                  |   ![](images/3333.png)
+
+
+Now open another tab in your browser and go to `localhost/tronal_dump` and see the process id.Reload it and see the process id is changing which means you are served by different servers at different time.
+
+Served by server running at Port 1111   |  Served by server running at Port 2222 | Served by server running at Port 3333
+:--------------------------------------:|:--------------------------------------:|:--------------------------------------:
+![](images/t1.png)                    |  ![](images/t2.png)                  |   ![](imagest3.png)
+
 
